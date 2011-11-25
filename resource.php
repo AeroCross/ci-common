@@ -24,7 +24,7 @@ class Resource {
 	private $base; // base URL
 	
 	/*
-	 * function __construct() - the class construct.
+	 * public function __construct() - the class construct.
 	 *
 	 * The constructor references the global Codeigniter object so it can be used inside
 	 * other methods.
@@ -35,7 +35,7 @@ class Resource {
 	 *
 	 */
 
-	function __construct() {
+	public function __construct() {
 		$ci =& get_instance();
 		$ci->load->helper('url');
 
