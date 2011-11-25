@@ -13,18 +13,18 @@
 class Utility {
 	
 	/*
-	 * method sqlToDate($date) - correctly formats a SQL date.
+	 * public method sqlToDate($date) - correctly formats a SQL date.
 	 *
 	 * This method takes a $time with the form of a ISO SQL date (such as 2011-09-07 16:48:59) and turns it into a human-readable standard date.
 	 *
-	 * @param string[$date] - the date to format. Must be in the format YYYY-MM-DD HH:MM:SS.
-	 * @return string - the formatted date.
+	 * @param string[$date] - the date to format. Must be in the format YYYY-MM-DD HH:MM:SS
+	 * @return string - the formatted date
 	 *
 	 * @author Mario Cuba <mario@mariocuba.net>
 	 *
 	 */
 
-	function sqlToDate($date) {
+	public function sqlToDate($date) {
 		// set the months and days - localizable
 		$month = array(NULL, 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 		$day = array(NULL, 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
@@ -38,18 +38,18 @@ class Utility {
 	}
 	
 	/*
-	 * method dateToSQL($date) - turns a standard dd/mm/yyyy date to SQL DATE valid string.
+	 * public method dateToSQL($date) - turns a standard dd/mm/yyyy date to SQL DATE valid string.
 	 *
 	 * This method simply grabs a $date string in the dd/mm/yyyy format, and reverses it, so it can be inserted into a DATE field in MySQL.
 	 *
-	 * @param string[$date] - the standard dd/mm/yyyy date.
+	 * @param string[$date] - the standard dd/mm/yyyy date
 	 * @return string - the formatted date
 	 *
 	 * @author Mario Cuba <mario@mariocuba.net>
 	 *
 	 */
 	 
-	function dateToSQL($date) {
+	public function dateToSQL($date) {
 		// divide the date into 3 parts (because there are 3 parts in the date)
 		$date = explode('/', $date);
 		
@@ -58,16 +58,16 @@ class Utility {
 	}
 
 	/*
-	 * method imageExists($url) - gets and image from an url and checks if it exists.
+	 * public method imageExists($url) - gets and image from an url and checks if it exists.
 	 *
-	 * @param string[$url] - a valid URL containing an image.
-	 * @return bool - TRUE if the image exists, FALSE otherwise.
+	 * @param string[$url] - a valid URL containing an image
+	 * @return bool - TRUE if the image exists, FALSE otherwise
 	 *
 	 * @author Mario Cuba <mario@mariocuba.net>
 	 *
 	 */
 
-	function imageExists($url) {
+	public function imageExists($url) {
 		if (@GetImageSize($url)) {
 			return TRUE;
 		} else {
