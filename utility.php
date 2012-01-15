@@ -37,36 +37,32 @@ class Utility {
 		return $month[$date[2]] . ' ' . $date[1] . ', ' . $date[3];
 	}
 	
-	/*
-	 * public method dateToSQL($date) - turns a standard dd/mm/yyyy date to SQL DATE valid string.
-	 *
-	 * This method simply grabs a $date string in the dd/mm/yyyy format, and reverses it, so it can be inserted into a DATE field in MySQL.
-	 *
-	 * @param string[$date] - the standard dd/mm/yyyy date
-	 * @return string - the formatted date
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-	 
-	public function dateToSQL($date) {
+	/**
+	* Turns a standard dd/mm/yyyy date to SQL DATE valid string.
+	*
+	* @param	string[$date] - the standard dd/mm/yyyy date
+	* @return	string - the formatted date
+	* @access	public
+	*/
+	public function dateToSQL($date, $delimiter = '/') {
 		// divide the date into 3 parts (because there are 3 parts in the date)
-		$date = explode('/', $date);
+		$date = explode($delimiter, $date);
+		
+		if (count($date) != 3) {
+			return FALSE;
+		}
 		
 		// arrange them, and return the arranged string
-		return $date[2] . '/' . $date[1] . '/' . $date[0];
+		return $date[2] . $delimiter . $date[1] . $delimiter . $date[0];
 	}
 
-	/*
-	 * public method imageExists($url) - gets and image from an url and checks if it exists.
-	 *
-	 * @param string[$url] - a valid URL containing an image
-	 * @return bool - TRUE if the image exists, FALSE otherwise
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Gets and image from an url and checks if it exists.
+	*
+	* @param	string[$url] - a valid URL containing an image
+	* @return	bool - TRUE if the image exists, FALSE otherwise
+	* @access	public
+	*/
 	public function imageExists($url) {
 		if (@GetImageSize($url)) {
 			return TRUE;
