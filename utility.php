@@ -74,4 +74,50 @@ class Utility {
 			return FALSE;
 		}
 	}
+	
+	/**
+	* Validates a phone number through a regular expression.
+	*
+	* The regular expression matches a number in the +xxx (xxx) xxx-xxxx format.
+	*
+	* @param	string[$phone] - a phone number
+	* @return	bool - TRUE if $phone matches the regular expression, FALSE otherwise
+	* @access	public
+	*/
+	public function validatePhone($phone) {
+		if (preg_match_all('|^\+[0-9]{1,3}\ \([0-9]{2,3}\)\ [0-9]{3}\-[0-9]{4}$|', $phone, $matches) == 1) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+	
+	/**
+	* Checks if a given date is valid.
+	*
+	* The format should be dd/mm/aaaa.
+	*
+	* @param	string[$date] - a date
+	* @return	bool - TRUE if it's a valid date, FALSE otherwise
+	* @access	public
+	*/ 
+	public function validateDate($date) {
+		$date_initial = $date;
+		$date = explode('/', $date);
+		
+		if (count($date) != 3) {
+			return FALSE;
+		}
+		
+		if (strlen($date[2]) != 4 OR strlen($date[1]) != 2 OR strlen($date[0]) != 2) {
+			return FALSE;
+		}
+		
+		// format should be dd/mm/aaaa
+		if (@checkdate($date[1], $date[0], $date[2])) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
 }
