@@ -1,18 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/*
- * class Resource - sets common paths inside Codeigniter.
- *
- * This library handles the common paths used inside views within
- * a Codeigniter installation.
- *
- * By calling the methods in this library, the filesystem inside a Codeigniter
- * application  can be easily accessed, while maintaining portability.
- * 
- * @author Mario Cuba <mario@mariocuba.net>
- *
- */
-
+/**
+* Resource library
+*
+* Sets common paths inside Codeigniter.
+*
+* By calling the methods in this library, the filesystem inside a Codeigniter
+* application  can be easily accessed, while maintaining portability.
+* 
+* @package		External Libraries
+* @subpackage	Common
+* @author		Mario Cuba <mario@mariocuba.net>
+*/
 class Resource {
 
 	// declare all the variables to use
@@ -23,18 +22,16 @@ class Resource {
 	private $inc; // includes folder
 	private $base; // base URL
 	
-	/*
-	 * public function __construct() - the class construct.
-	 *
-	 * The constructor references the global Codeigniter object so it can be used inside
-	 * other methods.
-	 *
-	 * It also sets the proper varables for the getters.
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* The class constructor.
+	*
+	* The constructor references the global Codeigniter object so it can be used inside
+	* other methods.
+	*
+	* It also sets the proper varables for the getters.
+	*
+	* @access	public
+	*/
 	public function __construct() {
 		$ci =& get_instance();
 		$ci->load->helper('url');
@@ -50,66 +47,52 @@ class Resource {
 		$this->base = base_url();
 	}
 	
-	/*
-	 * public method view($file) - returns the abslute URL to the Views folder.
-	 *
-	 * @return string - the absolute URL path to the views folder
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
+	/**
+	* Returns the abslute URL to the Views folder.
+	*
+	* @return	string - the absolute URL path to the views folder
+	* @access	public
+	*/
 	public function view($file = '') {
 		return $this->base . $this->app . 'views/' . $file;
 	}
 	
-	/*
-	 * public method img($file) - returns the abslute URL to the Images folder.
-	 *
-	 * @return string - the absolute URL path to the images folder
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Returns the abslute URL to the Images folder.
+	*
+	* @return	string - the absolute URL path to the images folder
+	* @access	public
+	*/
 	public function img($file) {
 		return $this->view($this->img . $file);
 	}
 
-	/*
-	 * public method js($file) - returns the abslute URL to the JavaScript folder.
-	 *
-	 * @return string - the absolute URL path to the JavaScript folder
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Returns the abslute URL to the JavaScript folder.
+	*
+	* @return	string - the absolute URL path to the JavaScript folder
+	* @access	public
+	*/
 	public function js($file) {
 		return $this->view($this->js . $file);
 	}
 	
-	/*
-	 * public method css($file) - returns the abslute URL to the CSS Stylesheets folder.
-	 *
-	 * @return string - the absolute URL path to the CSS Stylesheets folder
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Returns the abslute URL to the CSS Stylesheets folder.
+	*
+	* @return	string - the absolute URL path to the CSS Stylesheets folder
+	* @access	public
+	*/
 	public function css($file) {
 		return $this->view($this->css . $file);	
 	}
 	
-	/*
-	 * public method inc($file) - returns the abslute URL to the Includes folder.
-	 *
-	 * @return string - the absolute URL path to the Includes folder
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Returns the abslute URL to the Includes folder.
+	*
+	* @return	string - the absolute URL path to the Includes folder
+	* @access	public
+	*/
 	public function inc($file) {
 		return $this->view($this->inc . $file);
 	}
