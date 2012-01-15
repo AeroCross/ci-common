@@ -1,29 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/*
- * class Utility - common utility methods to be uses site-wide.
- *
- * This class contains utility methods that Codeigniter does not come bundled with. 
- * Stuff like date formatting, string parsing, regexes and rearranging of arrays or objects will come here.
- *
- * @author Mario Cuba <mario@mariocuba.net>
- *
- */
+/**
+* Utility class
+*
+* This class contains utility methods that Codeigniter does not come bundled with.
+* Stuff like date formatting, string parsing, regexes and rearranging of arrays or objects will come here.
+*
+* @package		External Libraries
+* @subpackage	Common
+* @author		Mario Cuba <mario@mariocuba.net>
+*/
  
 class Utility {
 	
-	/*
-	 * public method sqlToDate($date) - correctly formats a SQL date.
-	 *
-	 * This method takes a $time with the form of a ISO SQL date (such as 2011-09-07 16:48:59) and turns it into a human-readable standard date.
-	 *
-	 * @param string[$date] - the date to format. Must be in the format YYYY-MM-DD HH:MM:SS
-	 * @return string - the formatted date
-	 *
-	 * @author Mario Cuba <mario@mariocuba.net>
-	 *
-	 */
-
+	/**
+	* Correctly formats an SQL date.
+	*
+	* This method takes a $time with the form of a ISO SQL date (such as 2011-09-07 16:48:59) and
+	* turns it into a human-readable standard date.
+	*
+	* @param	string[$date] - the date to format. Must be in the format YYYY-MM-DD HH:MM:SS
+	* @return	string - the formatted date
+	* @access	public
+	*/
 	public function sqlToDate($date) {
 		// set the months and days - localizable
 		$month = array(NULL, 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
