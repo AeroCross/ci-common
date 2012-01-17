@@ -90,8 +90,6 @@ class Utility {
 	/**
 	* Checks if a given date is valid.
 	*
-	* The format should be dd/mm/aaaa.
-	*
 	* @param	string[$date] - a date
 	* @return	bool - TRUE if it's a valid date, FALSE otherwise
 	* @access	public
