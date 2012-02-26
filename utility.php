@@ -113,4 +113,36 @@ class Utility {
 			return FALSE;
 		}
 	}
+	
+	/**
+	* Generates a random string.
+	*
+	* By default, the generated random string consists only of numbers and letters.
+	*
+	* @param	int		- the lenght of the resulting string
+	* @param	string	- symbols to add to the random string
+	* @param	bool	- whether to use or not the default (letters and numbers) string
+	* @return	string	- a randomized string
+	* @access	public
+	*/
+	public function generateString($lenght = 10, $symbols = '-_/@!?#$', $defaults = TRUE) {
+		$string = '';
+
+		// default, total, and number of characters
+		if ($defaults === TRUE) {
+			$chars_d = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';	
+			$chars_t = $chars_d . $symbols;
+		} else {
+			$chars_t = $symbols;
+		}
+
+		$chars_n = strlen($chars_t);
+		 
+		for ($x = 0; $x < $lenght; $x++) {
+			$rn = mt_rand(0, $chars_n);
+			$string = $string . substr($chars_t, $rn-1, 1);
+		}
+
+		return $string;
+	}
 }
