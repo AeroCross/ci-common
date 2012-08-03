@@ -38,7 +38,7 @@ class Resource {
 
 		// set up folder names inside views
 		$this->assets 	= 'assets'	. '/';
-		$this->img 		= 'images'	. '/';
+		$this->img 		= 'img'		. '/';
 		$this->js 		= 'js'		. '/';
 		$this->css 		= 'css'		. '/';
 		$this->inc 		= 'inc'		. '/';
