@@ -15,12 +15,12 @@
 class Resource {
 
 	// declare all the variables to use
-	private $app;	// application folder
-	private $img;	// images folder
-	private $js;	// javascript folder
-	private $css;	// css folder
-	private $inc;	// includes folder
-	private $base;	// base URL
+	private $assets;	// assets folder
+	private $img;		// images folder
+	private $js;		// javascript folder
+	private $css;		// css folder
+	private $inc;		// includes folder
+	private $base;		// base URL
 	
 	/**
 	* The class constructor.
@@ -37,11 +37,11 @@ class Resource {
 		$ci->load->helper('url');
 
 		// set up folder names inside views
-		$this->app 	= 'application'	. '/';
-		$this->img 	= 'img'			. '/';
-		$this->js 	= 'js'			. '/';
-		$this->css 	= 'css'			. '/';
-		$this->inc 	= 'inc'			. '/';
+		$this->assets 	= 'assets'	. '/';
+		$this->img 		= 'images'	. '/';
+		$this->js 		= 'js'		. '/';
+		$this->css 		= 'css'		. '/';
+		$this->inc 		= 'inc'		. '/';
 		
 		// set up the URL root of the Codeigniter application
 		$this->base = base_url();
@@ -53,8 +53,8 @@ class Resource {
 	* @return	string - the absolute URL path to the views folder
 	* @access	public
 	*/
-	public function view($file = '') {
-		return $this->base . $this->app . 'views/' . $file;
+	public function assets($file = '') {
+		return $this->base . APPPATH . 'views/' . $this->assets . $file;
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class Resource {
 	* @access	public
 	*/
 	public function img($file) {
-		return $this->view($this->img . $file);
+		return $this->assets($this->img . $file);
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Resource {
 	* @access	public
 	*/
 	public function js($file) {
-		return $this->view($this->js . $file);
+		return $this->assets($this->js . $file);
 	}
 	
 	/**
@@ -84,7 +84,7 @@ class Resource {
 	* @access	public
 	*/
 	public function css($file) {
-		return $this->view($this->css . $file);	
+		return $this->assets($this->css . $file);	
 	}
 	
 	/**
@@ -94,7 +94,7 @@ class Resource {
 	* @access	public
 	*/
 	public function inc($file) {
-		return $this->view($this->inc . $file);
+		return $this->assets($this->inc . $file);
 	}
 
 }
