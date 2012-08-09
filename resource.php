@@ -15,12 +15,13 @@
 class Resource {
 
 	// declare all the variables to use
-	private $assets;	// assets folder
-	private $img;		// images folder
-	private $js;		// javascript folder
-	private $css;		// css folder
-	private $inc;		// includes folder
-	private $base;		// base URL
+	private $application;	// application folder
+	private $assets;		// assets folder
+	private $img;			// images folder
+	private $js;			// javascript folder
+	private $css;			// css folder
+	private $inc;			// includes folder
+	private $base;			// base URL
 	
 	/**
 	* The class constructor.
@@ -37,11 +38,12 @@ class Resource {
 		$ci->load->helper('url');
 
 		// set up folder names inside views
-		$this->assets 	= 'assets'	. '/';
-		$this->img 		= 'img'		. '/';
-		$this->js 		= 'js'		. '/';
-		$this->css 		= 'css'		. '/';
-		$this->inc 		= 'inc'		. '/';
+		$this->application 	= 'application'	. '/';
+		$this->assets 		= 'assets'		. '/';
+		$this->img 			= 'img'			. '/';
+		$this->js 			= 'js'			. '/';
+		$this->css 			= 'css'			. '/';
+		$this->inc 			= 'inc'			. '/';
 		
 		// set up the URL root of the Codeigniter application
 		$this->base = base_url();
@@ -54,7 +56,7 @@ class Resource {
 	* @access	public
 	*/
 	public function assets($file = '') {
-		return $this->base . APPPATH . 'views/' . $this->assets . $file;
+		return $this->base . $this->application . 'views/' . $this->assets . $file;
 	}
 	
 	/**
