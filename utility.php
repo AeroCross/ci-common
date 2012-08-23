@@ -10,7 +10,6 @@
 * @subpackage	Common
 * @author		Mario Cuba <mario@mariocuba.net>
 */
- 
 class Utility {
 	
 	/**
